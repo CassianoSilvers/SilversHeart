@@ -9,10 +9,38 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #050816;
+    font-family: "Inter", sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(61, 80, 180, 0.18), transparent 35%),
+        radial-gradient(circle at top right, rgba(112, 71, 190, 0.15), transparent 30%),
+        linear-gradient(180deg, #03040a 0%, #070b18 55%, #050816 100%);
     color: #f5f7ff;
     line-height: 1.6;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.8) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 25% 70%, rgba(255, 255, 255, 0.55) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 40% 30%, rgba(196, 207, 255, 0.7) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 55% 80%, rgba(255, 255, 255, 0.65) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 70% 15%, rgba(208, 196, 255, 0.75) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 85% 60%, rgba(255, 255, 255, 0.6) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 95% 35%, rgba(198, 210, 255, 0.8) 0 1px, transparent 1.5px);
+
+    background-size:
+        280px 280px,
+        350px 350px,
+        420px 420px,
+        500px 500px,
+        320px 320px,
+        460px 460px,
+        380px 380px;
 }
 
 header {
@@ -22,12 +50,21 @@ header {
     width: 100%;
     padding: 24px 48px;
     z-index: 1000;
+    background: rgba(3, 4, 10, 0.25);
+    backdrop-filter: blur(8px);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+nav > a {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
 }
 
 nav ul {
@@ -37,8 +74,14 @@ nav ul {
 }
 
 nav a {
+    font-family: "Space Grotesk", sans-serif;
     color: #f5f7ff;
     text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+nav a:hover {
+    opacity: 0.7;
 }
 
 main section {
@@ -47,6 +90,9 @@ main section {
 }
 
 #home {
+    position: relative;
+    isolation: isolate;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,32 +100,87 @@ main section {
     text-align: center;
 }
 
+#home::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: rgba(68, 78, 170, 0.1);
+    filter: blur(100px);
+    z-index: -1;
+}
+
+#home > p:first-child {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    color: #9fa9cf;
+}
+
 #home h1 {
-    font-size: 4rem;
-    line-height: 1;
-    margin: 16px 0;
+    font-family: "Space Grotesk", sans-serif;
+    max-width: 900px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin: 12px 0 20px;
+    background: linear-gradient(90deg, #ffffff, #cfd8ff, #b9a9ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 #home h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 400;
     margin-bottom: 24px;
+    color: #c6cce3;
 }
 
 #home p {
     max-width: 700px;
 }
 
+#home > p:nth-of-type(2) {
+    color: #aeb6d2;
+    font-size: 1.05rem;
+}
+
 #home a {
     display: inline-block;
-    margin-top: 32px;
-    padding: 12px 20px;
-    border: 1px solid #f5f7ff;
+    margin-top: 36px;
+    padding: 12px 22px;
+    border: 1px solid rgba(216, 223, 255, 0.35);
+    border-radius: 999px;
     color: #f5f7ff;
     text-decoration: none;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+#home a:hover {
+    transform: translateY(-2px);
+    border-color: rgba(216, 223, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+#sobre,
+#skills,
+#projetos,
+#contato {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 footer {
     padding: 40px 48px;
     text-align: center;
+    color: #8e97b6;
 }
