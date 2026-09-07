@@ -43,6 +43,51 @@ body {
         380px 380px;
 }
 
+.stars-near {
+    opacity: 0.55;
+
+    background-image:
+        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.95) 0 1.5px, transparent 2px),
+        radial-gradient(circle at 35% 65%, rgba(210, 220, 255, 0.9) 0 1.5px, transparent 2px),
+        radial-gradient(circle at 60% 20%, rgba(255, 255, 255, 0.85) 0 1.5px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(215, 202, 255, 0.9) 0 1.5px, transparent 2px),
+        radial-gradient(circle at 90% 40%, rgba(255, 255, 255, 0.9) 0 1.5px, transparent 2px);
+
+    background-size:
+        520px 520px,
+        650px 650px,
+        780px 780px,
+        590px 590px,
+        720px 720px;
+
+    animation: drift-stars 45s linear infinite;
+}
+
+@keyframes drift-stars {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-40px, 25px, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .stars-near {
+        animation: none;
+    }
+
+    nav a,
+    #home a {
+        transition: none;
+    }
+}
+
 header {
     position: fixed;
     top: 0;
@@ -60,7 +105,7 @@ nav {
     align-items: center;
 }
 
-nav > a {
+nav>a {
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.12rem;
@@ -111,7 +156,7 @@ main section {
     z-index: -1;
 }
 
-#home > p:first-child {
+#home>p:first-child {
     margin-bottom: 12px;
     font-size: 0.9rem;
     letter-spacing: 0.18rem;
@@ -131,6 +176,9 @@ main section {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+    text-shadow:
+        0 0 30px rgba(160, 175, 255, 0.12),
+        0 0 70px rgba(115, 90, 220, 0.08);
 }
 
 #home h2 {
@@ -144,7 +192,7 @@ main section {
     max-width: 700px;
 }
 
-#home > p:nth-of-type(2) {
+#home>p:nth-of-type(2) {
     color: #aeb6d2;
     font-size: 1.05rem;
 }
