@@ -60,31 +60,16 @@ body {
         590px 590px,
         720px 720px;
 
-    animation: drift-stars 45s linear infinite;
+    animation: drift-stars 45s ease-in-out infinite alternate;
 }
 
 @keyframes drift-stars {
     from {
-        transform: translate3d(0, 0, 0);
+        background-position: 0 0;
     }
 
     to {
-        transform: translate3d(-40px, 25px, 0);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    .stars-near {
-        animation: none;
-    }
-
-    nav a,
-    #home a {
-        transition: none;
+        background-position: -40px 25px;
     }
 }
 
@@ -148,8 +133,8 @@ main section {
 #home::before {
     content: "";
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: min(600px, 100%);
+    aspect-ratio: 1;
     border-radius: 50%;
     background: rgba(68, 78, 170, 0.1);
     filter: blur(100px);
@@ -231,4 +216,59 @@ footer {
     padding: 40px 48px;
     text-align: center;
     color: #8e97b6;
+}
+
+footer a {
+    color: #c6cce3;
+}
+
+@media (max-width: 768px) {
+    header {
+        position: static;
+        padding: 20px 24px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    main section {
+        padding: 80px 24px 60px;
+    }
+
+    #home h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    footer {
+        padding: 32px 24px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .stars-near {
+        animation: none;
+    }
+
+    nav a,
+    #home a {
+        transition: none;
+    }
+
+    #home a:hover {
+        transform: none;
+    }
 }
