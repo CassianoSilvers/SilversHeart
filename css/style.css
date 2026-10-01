@@ -339,6 +339,34 @@ main section {
     background: rgba(255, 255, 255, 0.02);
 }
 
+.project-card {
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(176, 190, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.035);
+}
+
+.project-star {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.project-card:hover .project-star {
+    transform: scale(1.25);
+
+    box-shadow:
+        0 0 25px rgba(255, 255, 255, 1),
+        0 0 80px rgba(142, 158, 255, 0.75),
+        0 0 150px rgba(116, 88, 220, 0.45);
+}
+
 .project-visual {
     display: flex;
     justify-content: center;
@@ -504,6 +532,19 @@ footer a {
     }
 
     #home a:hover {
+        transform: none;
+    }
+
+    .project-card,
+    .project-star {
+        transition: none;
+    }
+
+    .project-card:hover {
+        transform: none;
+    }
+
+    .project-card:hover .project-star {
         transform: none;
     }
 }
