@@ -263,7 +263,55 @@ main section {
 
 #projetos,
 #contato {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+#contato h2 {
+    max-width: 800px;
+    margin-bottom: 24px;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+
+    color: #f5f7ff;
+}
+
+.contact-text {
+    max-width: 650px;
+    margin-bottom: 32px;
+
+    color: #aeb6d2;
+    font-size: 1.05rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.contact-links a {
+    padding: 12px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+
+    color: #f5f7ff;
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.contact-links a:hover {
+    transform: translateY(-2px);
+    border-color: rgba(180, 190, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.04);
 }
 
 .section-container {
@@ -445,13 +493,18 @@ main section {
 }
 
 footer {
-    padding: 40px 48px;
+    padding: 48px;
     text-align: center;
     color: #8e97b6;
 }
 
+footer p {
+    margin-bottom: 12px;
+}
+
 footer a {
     color: #c6cce3;
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -545,6 +598,14 @@ footer a {
     }
 
     .project-card:hover .project-star {
+        transform: none;
+    }
+
+    .contact-links a {
+        transition: none;
+    }
+
+    .contact-links a:hover {
         transform: none;
     }
 }
