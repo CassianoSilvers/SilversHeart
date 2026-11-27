@@ -10,12 +10,20 @@ html {
 
 body {
     font-family: "Inter", sans-serif;
-    background:
-        radial-gradient(circle at top left, rgba(61, 80, 180, 0.18), transparent 35%),
-        radial-gradient(circle at top right, rgba(112, 71, 190, 0.15), transparent 30%),
-        linear-gradient(180deg, #03040a 0%, #070b18 55%, #050816 100%);
+    background: #050816;
     color: #f5f7ff;
     line-height: 1.6;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        linear-gradient(rgba(3, 4, 10, 0.78), rgba(5, 8, 22, 0.84)),
+        url("../assets/messier-82.jpg") center / cover no-repeat;
 }
 
 .stars {
@@ -182,7 +190,7 @@ main section {
     font-size: 1.05rem;
 }
 
-#home a {
+#home > a {
     display: inline-block;
     margin-top: 36px;
     padding: 12px 22px;
@@ -199,10 +207,26 @@ main section {
         background-color 0.2s ease;
 }
 
-#home a:hover {
+#home > a:hover {
     transform: translateY(-2px);
     border-color: rgba(216, 223, 255, 0.7);
     background-color: rgba(255, 255, 255, 0.05);
+}
+
+#home .image-credit {
+    position: absolute;
+    bottom: 18px;
+    right: 24px;
+    left: 24px;
+    max-width: none;
+    color: #d4d9eb;
+    font-size: 0.7rem;
+    line-height: 1.4;
+}
+
+#home .image-credit a {
+    color: inherit;
+    text-underline-offset: 2px;
 }
 
 #sobre,
@@ -534,6 +558,14 @@ footer a {
 
     main section {
         padding: 80px 24px 60px;
+    }
+
+    #home {
+        padding-bottom: 150px;
+    }
+
+    #home .image-credit {
+        bottom: 16px;
     }
 
     #home h1 {
