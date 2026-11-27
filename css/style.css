@@ -418,6 +418,10 @@ main section {
         background-color 0.25s ease;
 }
 
+.project-card + .project-card {
+    margin-top: 24px;
+}
+
 .project-card:hover {
     transform: translateY(-6px);
     border-color: rgba(176, 190, 255, 0.2);
